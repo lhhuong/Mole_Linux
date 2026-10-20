@@ -1,0 +1,120 @@
+test_app_data_removed_to_trash_after_package_success (test_batch.BatchTests.test_app_data_removed_to_trash_after_package_success) ... ok
+test_batch_confirms_once_and_continues_after_one_failure (test_batch.BatchTests.test_batch_confirms_once_and_continues_after_one_failure) ... ok
+test_batch_deduplicates_packages (test_batch.BatchTests.test_batch_deduplicates_packages) ... ok
+test_cancelled_batch_does_not_start_next_app (test_batch.BatchTests.test_cancelled_batch_does_not_start_next_app) ... ok
+test_clean_defaults_to_all_known_roots (test_batch.BatchTests.test_clean_defaults_to_all_known_roots) ... ok
+test_clean_slow_scan_does_not_cancel_itself (test_batch.BatchTests.test_clean_slow_scan_does_not_cancel_itself) ... ok
+test_command_failure_continues_only_independent_optimize_tasks (test_batch.BatchTests.test_command_failure_continues_only_independent_optimize_tasks) ... ok
+test_docker_manifest_only_includes_desktop_subtree (test_batch.BatchTests.test_docker_manifest_only_includes_desktop_subtree) ... ok
+test_docker_preflight_only_reads_and_schedules_stop (test_batch.BatchTests.test_docker_preflight_only_reads_and_schedules_stop) ... ok
+test_dry_run_never_stops_service_or_removes_app (test_batch.BatchTests.test_dry_run_never_stops_service_or_removes_app) ... ok
+test_explicit_clean_cancel_produces_no_plan (test_batch.BatchTests.test_explicit_clean_cancel_produces_no_plan) ... ok
+test_fully_unreadable_process_still_blocks (test_batch.BatchTests.test_fully_unreadable_process_still_blocks) ... ok
+test_line_checkboxes_toggle_validate_and_cancel (test_batch.BatchTests.test_line_checkboxes_toggle_validate_and_cancel) ... ok
+test_menu_clean_and_optimize_have_no_scope_prompt (test_batch.BatchTests.test_menu_clean_and_optimize_have_no_scope_prompt) ... ok
+test_optimize_uses_one_auth_invocation (test_batch.BatchTests.test_optimize_uses_one_auth_invocation) ... ok
+test_process_identity_is_exact_and_unrelated_files_do_not_block (test_batch.BatchTests.test_process_identity_is_exact_and_unrelated_files_do_not_block) ... ok
+test_removed_app_directories_restore_with_files (test_batch.BatchTests.test_removed_app_directories_restore_with_files) ... ok
+test_removed_commands_rejected (test_batch.BatchTests.test_removed_commands_rejected) ... ok
+test_residual_cleanup_keeps_new_files_and_changed_directories (test_batch.BatchTests.test_residual_cleanup_keeps_new_files_and_changed_directories) ... ok
+test_snap_snapshot_plan_targets_only_selected_app (test_batch.BatchTests.test_snap_snapshot_plan_targets_only_selected_app) ... ok
+test_still_running_after_stop_prevents_remove (test_batch.BatchTests.test_still_running_after_stop_prevents_remove) ... ok
+test_stop_then_recheck_then_remove (test_batch.BatchTests.test_stop_then_recheck_then_remove) ... ok
+test_uninstall_does_not_depend_on_global_open_file_probe (test_batch.BatchTests.test_uninstall_does_not_depend_on_global_open_file_probe) ... ok
+test_unknown_and_running_have_distinct_messages (test_batch.BatchTests.test_unknown_and_running_have_distinct_messages) ... ok
+test_unreadable_docker_exe_still_detected (test_batch.BatchTests.test_unreadable_docker_exe_still_detected) ... ok
+test_unreadable_unrelated_exe_does_not_block_docker (test_batch.BatchTests.test_unreadable_unrelated_exe_does_not_block_docker) ... ok
+test_actual_clean_preview_move_restore_roundtrip (test_console_integration.ConsoleIntegrationTests.test_actual_clean_preview_move_restore_roundtrip) ... ok
+test_dashboard_updates_resizes_and_quits (test_console_integration.ConsoleIntegrationTests.test_dashboard_updates_resizes_and_quits) ... ok
+test_gui_subcommand_removed (test_console_integration.ConsoleIntegrationTests.test_gui_subcommand_removed) ... ok
+test_invalid_numeric_arguments (test_console_integration.ConsoleIntegrationTests.test_invalid_numeric_arguments) ... ok
+test_json_status_is_plain_and_valid (test_console_integration.ConsoleIntegrationTests.test_json_status_is_plain_and_valid) ... ok
+test_no_color_and_dumb_terminal (test_console_integration.ConsoleIntegrationTests.test_no_color_and_dumb_terminal) ... ok
+test_noninteractive_cleanup_requires_explicit_yes (test_console_integration.ConsoleIntegrationTests.test_noninteractive_cleanup_requires_explicit_yes) ... ok
+test_process_death_after_move_can_restore_prepared_receipt (test_console_integration.ConsoleIntegrationTests.test_process_death_after_move_can_restore_prepared_receipt) ... ok
+test_real_menu_arrows_dispatch_and_return (test_console_integration.ConsoleIntegrationTests.test_real_menu_arrows_dispatch_and_return) ... ok
+test_real_terminal_multi_selection_and_filter (test_console_integration.ConsoleIntegrationTests.test_real_terminal_multi_selection_and_filter) ... ok
+test_watch_interrupt_returns_to_menu (test_console_integration.ConsoleIntegrationTests.test_watch_interrupt_returns_to_menu) ... ok
+test_cancel_before_first_move_has_receipt (test_engine.EngineTests.test_cancel_before_first_move_has_receipt) ... ok
+test_cancelled_package_plan_cannot_retry_leftovers (test_engine.EngineTests.test_cancelled_package_plan_cannot_retry_leftovers) ... ok
+test_changed_candidate_kept (test_engine.EngineTests.test_changed_candidate_kept) ... ok
+test_collision_does_not_overwrite_trash (test_engine.EngineTests.test_collision_does_not_overwrite_trash) ... ok
+test_destination_symlink_race_refused (test_engine.EngineTests.test_destination_symlink_race_refused) ... ok
+test_each_supported_cache_has_age_filter (test_engine.EngineTests.test_each_supported_cache_has_age_filter) ... ok
+test_failed_package_does_not_touch_related_files (test_engine.EngineTests.test_failed_package_does_not_touch_related_files) ... ok
+test_failed_receipt_write_leaves_source (test_engine.EngineTests.test_failed_receipt_write_leaves_source) ... ok
+test_file_opened_after_preview_kept (test_engine.EngineTests.test_file_opened_after_preview_kept) ... ok
+test_flatpak_keeps_data (test_engine.EngineTests.test_flatpak_keeps_data) ... ok
+test_interrupted_prepared_receipt_recovers (test_engine.EngineTests.test_interrupted_prepared_receipt_recovers) ... ok
+test_invalid_config_version_refused (test_engine.EngineTests.test_invalid_config_version_refused) ... ok
+test_new_file_after_preview_not_added (test_engine.EngineTests.test_new_file_after_preview_not_added) ... ok
+test_open_file_and_unknown_process_state_kept (test_engine.EngineTests.test_open_file_and_unknown_process_state_kept) ... ok
+test_preview_writes_nothing (test_engine.EngineTests.test_preview_writes_nothing) ... ok
+test_protect_state_ancestors_and_trash (test_engine.EngineTests.test_protect_state_ancestors_and_trash) ... ok
+test_recent_access_keeps_old_modified_file (test_engine.EngineTests.test_recent_access_keeps_old_modified_file) ... ok
+test_recently_accessed_after_preview_kept (test_engine.EngineTests.test_recently_accessed_after_preview_kept) ... ok
+test_restore_unicode_spaces_and_conflict (test_engine.EngineTests.test_restore_unicode_spaces_and_conflict) ... ok
+test_retry_cancelled_file_plan (test_engine.EngineTests.test_retry_cancelled_file_plan) ... ok
+test_root_escape_env_is_not_honored (test_engine.EngineTests.test_root_escape_env_is_not_honored) ... Run MoleLinux without sudo; it requests administrator access only when needed.
+ok
+test_symlink_ancestor_inside_home_refused (test_engine.EngineTests.test_symlink_ancestor_inside_home_refused) ... ok
+test_symlink_and_hardlink_kept (test_engine.EngineTests.test_symlink_and_hardlink_kept) ... ok
+test_trash_symlink_refused (test_engine.EngineTests.test_trash_symlink_refused) ... ok
+test_twenty_app_ids_include_owned_config_and_data_in_preview (test_engine.EngineTests.test_twenty_app_ids_include_owned_config_and_data_in_preview) ... ok
+test_unlisted_cache_and_documents_kept (test_engine.EngineTests.test_unlisted_cache_and_documents_kept) ... ok
+test_whitelist_descendant_protects_parent (test_engine.EngineTests.test_whitelist_descendant_protects_parent) ... ok
+test_broken_history_record_does_not_hide_good_records (test_experience.ExperienceTests.test_broken_history_record_does_not_hide_good_records) ... ok
+test_cancelled_disk_scan_is_marked_partial (test_experience.ExperienceTests.test_cancelled_disk_scan_is_marked_partial) ... ok
+test_clean_reports_unknown_process_state (test_experience.ExperienceTests.test_clean_reports_unknown_process_state) ... ok
+test_config_non_object_is_rejected (test_experience.ExperienceTests.test_config_non_object_is_rejected) ... ok
+test_console_analyze_navigates_without_typing_paths (test_experience.ExperienceTests.test_console_analyze_navigates_without_typing_paths) ... ok
+test_cpu_guest_times_not_double_counted (test_experience.ExperienceTests.test_cpu_guest_times_not_double_counted) ... ok
+test_cpu_missing_proc_is_actionable (test_experience.ExperienceTests.test_cpu_missing_proc_is_actionable) ... ok
+test_dashboard_bars_clamp_out_of_range (test_experience.ExperienceTests.test_dashboard_bars_clamp_out_of_range) ... ok
+test_dashboard_missing_swap_and_battery_are_explicit (test_experience.ExperienceTests.test_dashboard_missing_swap_and_battery_are_explicit) ... ok
+test_disk_scan_deduplicates_hardlinks_and_skips_symlink (test_experience.ExperienceTests.test_disk_scan_deduplicates_hardlinks_and_skips_symlink) ... ok
+test_empty_clean_does_not_confirm_or_write_history (test_experience.ExperienceTests.test_empty_clean_does_not_confirm_or_write_history) ... ok
+test_free_space_change_uses_signed_human_units (test_experience.ExperienceTests.test_free_space_change_uses_signed_human_units) ... ok
+test_hidden_desktop_entry_is_not_listed (test_experience.ExperienceTests.test_hidden_desktop_entry_is_not_listed) ... ok
+test_menu_returns_after_action_and_exits_only_on_zero (test_experience.ExperienceTests.test_menu_returns_after_action_and_exits_only_on_zero) ... ok
+test_missing_snap_never_falls_back_to_apt (test_experience.ExperienceTests.test_missing_snap_never_falls_back_to_apt) ... ok
+test_negative_menu_input_does_not_dispatch (test_experience.ExperienceTests.test_negative_menu_input_does_not_dispatch) ... ok
+test_paged_selection_and_search (test_experience.ExperienceTests.test_paged_selection_and_search) ... ok
+test_single_maintenance_selection (test_experience.ExperienceTests.test_single_maintenance_selection) ... ok
+test_sparse_file_reports_allocated_and_logical_separately (test_experience.ExperienceTests.test_sparse_file_reports_allocated_and_logical_separately) ... ok
+test_terminal_control_characters_are_escaped (test_experience.ExperienceTests.test_terminal_control_characters_are_escaped) ... ok
+test_apt_keeps_configuration (test_helper.HelperTests.test_apt_keeps_configuration) ... ok
+test_core_package_refused (test_helper.HelperTests.test_core_package_refused) ... ok
+test_dependent_removal_refused (test_helper.HelperTests.test_dependent_removal_refused) ... ok
+test_no_arbitrary_path_or_option (test_helper.HelperTests.test_no_arbitrary_path_or_option) ... ok
+test_optimize_batches_fixed_tasks_and_continues_failure (test_helper.HelperTests.test_optimize_batches_fixed_tasks_and_continues_failure) ... Kept /tmp/tmpx_1xdwxz/.cache/pip/old.bin: File in use or process inspection unavailable
+! Trạng thái: partial · 0 bước chuyển file · 0 lệnh hệ thống
+Đã chuyển vào Trash: 0B (chưa giải phóng dung lượng).
+Biến động dung lượng trống: +0B · Phiên: e4a42beeab9240d1a0416b8192783f02
+  Restore /tmp/tmpk45rivcx/.local/share/Trash/files/old.bin → /tmp/tmpk45rivcx/.cache/pip/old.bin
+  Kept: Restore conflict: /tmp/tmpm6p5u31i/.cache/pip/Dữ liệu cũ
+  Restore /tmp/tmpm6p5u31i/.local/share/Trash/files/Dữ liệu cũ → /tmp/tmpm6p5u31i/.cache/pip/Dữ liệu cũ
+1 file · 12B có thể chuyển vào Trash
+• Chuyển vào Trash chưa giải phóng dung lượng. Có thể khôi phục từ Lịch sử.
+  /tmp/tmpkdjol8zj/.cache/pip/old.bin 12B [low] — pip: unused for at least 14 days
+✓ Trạng thái: complete · 1 bước chuyển file · 0 lệnh hệ thống
+Đã chuyển vào Trash: 12B (chưa giải phóng dung lượng).
+Biến động dung lượng trống: -8.0KiB · Phiên: 37fb9052beeb4af6bc2bf1e803e7a1fc
+apt-clean: FAILED
+journal-vacuum: OK
+trim: OK
+ok
+test_optimize_validates_whole_batch_before_running (test_helper.HelperTests.test_optimize_validates_whole_batch_before_running) ... ok
+test_purge_uses_same_dependency_guard (test_helper.HelperTests.test_purge_uses_same_dependency_guard) ... ok
+test_snap_keeps_snapshot (test_helper.HelperTests.test_snap_keeps_snapshot) ... ok
+test_snapshot_forget_never_deletes_entire_shared_set (test_helper.HelperTests.test_snapshot_forget_never_deletes_entire_shared_set) ... ok
+test_dry_run_does_not_move (test_molelinux.MoleLinuxSafetyTests.test_dry_run_does_not_move) ... ok
+test_leftovers_only_use_exact_top_level_names (test_molelinux.MoleLinuxSafetyTests.test_leftovers_only_use_exact_top_level_names) ... ok
+test_refuses_home_and_outside_paths (test_molelinux.MoleLinuxSafetyTests.test_refuses_home_and_outside_paths) ... ok
+test_refuses_symlink_that_escapes_home (test_molelinux.MoleLinuxSafetyTests.test_refuses_symlink_that_escapes_home) ... ok
+test_trash_moves_file_and_writes_info (test_molelinux.MoleLinuxSafetyTests.test_trash_moves_file_and_writes_info) ... ok
+
+----------------------------------------------------------------------
+Ran 98 tests in 3.849s
+
+OK

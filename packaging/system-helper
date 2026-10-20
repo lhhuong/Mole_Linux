@@ -1,0 +1,76 @@
+#!/usr/bin/python3 -I
+"""Polkit entrypoint: fixed commands, no caller-supplied paths or shell."""
+import os
+import re
+import subprocess
+import sys
+
+ENV = {'PATH': '/usr/sbin:/usr/bin:/sbin:/bin', 'LC_ALL': 'C', 'DEBIAN_FRONTEND': 'noninteractive'}
+FIXED = {
+    'apt-clean': ['/usr/bin/apt-get', 'clean'],
+    'journal-vacuum': ['/usr/bin/journalctl', '--vacuum-time=14d'],
+    'trim': ['/usr/sbin/fstrim', '--all'],
+}
+
+
+def command(args):
+    if len(args) == 3 and args[0] == 'snap-forget':
+        identifier, package = args[1:]
+        if not re.fullmatch(r'[1-9][0-9]*', identifier) or not re.fullmatch(r'[a-z0-9][a-z0-9-]*', package):
+            raise ValueError('Invalid snapshot ID or Snap name')
+        result = subprocess.run(['/usr/bin/snap', 'saved', '--id=' + identifier, package],
+                                capture_output=True, text=True, env=ENV, timeout=30, check=True)
+        if not any(line.split()[:2] == [identifier, package] for line in result.stdout.splitlines()):
+            raise ValueError('Selected app snapshot no longer exists; refusing wider deletion')
+        return ['/usr/bin/snap', 'forget', identifier, package]
+    if len(args) == 1 and args[0] in FIXED:
+        return FIXED[args[0]]
+    if len(args) != 2:
+        raise ValueError('Expected one allowlisted action and optional package ID')
+    action, package = args
+    if action in {'snap-remove', 'snap-purge'} and re.fullmatch(r'[a-z0-9][a-z0-9-]*', package):
+        return ['/usr/bin/snap', 'remove', *(['--purge'] if action == 'snap-purge' else []), package]
+    if action not in {'apt-remove', 'apt-purge'} or not re.fullmatch(r'[a-z0-9][a-z0-9+.-]*(?::(?:amd64|arm64|all))?', package):
+        raise ValueError('Action or package is not allowed')
+    fields = subprocess.run(['/usr/bin/dpkg-query', '-W', '-f=${Essential} ${Protected} ${Priority}', package],
+                            capture_output=True, text=True, env=ENV, timeout=30, check=True).stdout.split()
+    if 'yes' in fields or 'required' in fields or 'important' in fields:
+        raise ValueError('Refusing essential, protected or core system package')
+    preview = subprocess.run(['/usr/bin/apt-get', '--simulate', 'remove', '--', package],
+                             capture_output=True, text=True, env=ENV, timeout=60, check=True)
+    removed = [line.split()[1] for line in preview.stdout.splitlines() if line.startswith('Remv ')]
+    if not removed or any(name.split(':')[0] != package.split(':')[0] for name in removed):
+        raise ValueError('Dependent package removal refused')
+    # dpkg can remove only the selected package and refuses dependency violations.
+    # It cannot expand the reviewed removal set if APT state changed after simulation.
+    return ['/usr/bin/dpkg', '--purge' if action == 'apt-purge' else '--remove', '--', package]
+
+
+def run_actions(args):
+    if args and args[0] == 'optimize':
+        tasks = args[1:]
+        if not tasks or len(tasks) > len(FIXED) or len(set(tasks)) != len(tasks) or any(task not in FIXED for task in tasks):
+            raise ValueError('Expected unique allowlisted maintenance tasks')
+        failed = False
+        for task in tasks:
+            try:
+                result = subprocess.run(FIXED[task], env=ENV, check=False)
+                ok = result.returncode == 0
+            except OSError as exc:
+                print(f'{task}: {exc}', file=sys.stderr, flush=True)
+                ok = False
+            print(f'{task}: {"OK" if ok else "FAILED"}', flush=True)
+            failed |= not ok
+        return int(failed)
+    return subprocess.run(command(args), env=ENV, check=False).returncode
+
+
+if __name__ == '__main__':
+    try:
+        if os.geteuid() != 0:
+            raise ValueError('This helper requires Polkit authentication')
+        os.chdir('/')
+        raise SystemExit(run_actions(sys.argv[1:]))
+    except (ValueError, OSError, subprocess.SubprocessError) as exc:
+        print(str(exc), file=sys.stderr)
+        raise SystemExit(1)

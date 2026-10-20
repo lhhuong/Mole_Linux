@@ -1,0 +1,14 @@
+Package: molelinux
+Version: @VERSION@
+Section: utils
+Priority: optional
+Architecture: all
+Installed-Size: @INSTALLED_SIZE@
+Depends: python3 (>= 3.10), pkexec | policykit-1, polkitd | policykit-1
+Recommends: apt, systemd, desktop-file-utils
+Maintainer: MoleLinux Project <maintainers@localhost>
+Homepage: https://github.com/tw93/mole
+Description: Safe cleanup and maintenance toolkit for Ubuntu
+ MoleLinux adapts Mole's cleanup, reviewed application removal, disk analysis,
+ system status, batch application removal and maintenance workflows to
+ Ubuntu, XDG directories, dpkg/APT, Flatpak and systemd.
